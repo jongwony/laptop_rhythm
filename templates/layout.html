@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+    <head>
+        <title>RHYTHM</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    </head>
+
+    <body>
+        {% block body %}{% endblock %}
+        <script src="//d3js.org/d3.v3.min.js"></script>
+        <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+    </body>
+</html>
