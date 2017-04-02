@@ -4,16 +4,22 @@ import pandas as pd
 from datetime import datetime
 from datetime import timedelta
 
-HEADER = ['INFO', 'DATE', 'ORIG', 'ID', 'CAT', 'DESC']
-ESSENCE = ['DATE', 'ID']
+ESSENCE = ['EventID', 'TimeWritten']
 
-raw_data = pd.read_csv('static/rhythm.csv', names=HEADER, skiprows=1, encoding='utf-8')
-df = pd.DataFrame(raw_data, columns=ESSENCE)
-df = df.replace(['오전', '오후'], ['AM', 'PM'], regex=True)
-df['DATE'] = pd.to_datetime(df['DATE'], format='%Y-%m-%d %p %I:%M:%S')
+class EventParam:
+    def __init__(self):
+        raw_data = pd.read_csv('static/rhythm.csv', header=1, encoding='utf-8')
+        self.df = pd.DataFrame(raw_data, columns=ESSENCE)
+        self.df = self.df.replace(['오전', '오후'], ['AM', 'PM'], regex=True)
+        self.df['TimeWritten'] = pd.to_datetime(self.df['TimeWritten'], format='%Y-%m-%d %p %I:%M:%S')
 
-#print(df.query('DATE > datetime.today().date()'))
-today_rhythm = df[df['DATE'] > datetime.today().date() - timedelta(days=1)]
+    def today_rhythm(self):
+        #print(df.query('DATE > datetime.today().date()'))
+        return self.df[self.df['TimeWritten'] > datetime.today().date()]
 
-for i, row in today_rhythm.iterrows():
-    print(row['DATE'], row['ID'])
+    def today_print(self):
+        for i, row in self.today_rhythm().iterrows():
+            print(row['TimeWritten'], row['EventID'])
+
+a = EventParam()
+a.today_print()

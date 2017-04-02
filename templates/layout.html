@@ -2,11 +2,13 @@
 <html>
     <head>
         <title>RHYTHM</title>
+        <meta charset="utf-8">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
     </head>
 
     <body>
         {% block body %}{% endblock %}
+        {% block debug %}{% endblock %}
         <script src="//d3js.org/d3.v3.min.js"></script>
         <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
     </body>
