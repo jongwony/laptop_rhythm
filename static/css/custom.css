@@ -1,27 +1,5 @@
-h1 {
-    color: yellowgreen;
-}
-
-h2 {
-    margin: auto;
-}
-
-.ex3_rect {
-    fill: blue;
-    stroke: pink;
-    stroke-width: 5;
-    opacity: 0.5;
-}
-
-.star {
-    fill: lime;
-    stroke: purple;
-    stroke-width: 5;
-    fill-rule: evenodd;
-}
-
-.polyline {
-    fill: white;
-    stroke: red;
-    stroke-width: 4;
+.legend rect {
+  fill: white;
+  stroke: black;
+  opacity: 0.8;
 }

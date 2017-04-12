@@ -8,8 +8,13 @@
 
     <body>
         {% block body %}{% endblock %}
-        {% block debug %}{% endblock %}
         <script src="//d3js.org/d3.v3.min.js"></script>
+        <script src="//d3js.org/d3-path.v1.min.js"></script>
+        <script src="//d3js.org/d3-shape.v1.min.js"></script>
         <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/d3-legend.js') }}"></script>
+        <script type='text/javascript'>
+            {% include 'visualization.js' %}
+        </script>
     </body>
 </html>
