@@ -5,7 +5,7 @@
 Get-EventLog -logname system -newest 100 -instanceid 7001, 7002, 506, 507 | `
 Export-CSV -encoding UTF8 -path "$PSScriptRoot\static\logon_rhythm.csv"
 
-# Battery dump to CSV
+# Battery report XML dump
 powercfg /batteryreport /output "$PSScriptRoot\static\battery_rhythm.xml" /xml
 
 # virtualenv activate
