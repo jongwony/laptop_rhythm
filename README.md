@@ -65,4 +65,5 @@ pip install pandas, flask
 ## TODO List
 
 - `static/battery_rhythm.xml` file analyze  
-- Specify history time(today yet)
+- Specify history time(today yet)  
+- arc hover: detail data

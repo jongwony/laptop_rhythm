@@ -8,7 +8,7 @@ ESSENCE = ['EventID', 'TimeWritten']
 
 class EventProc:
     def __init__(self):
-        raw_data = pd.read_csv('static/logon_rhythm.csv', header=1, encoding='utf-8')
+        raw_data = pd.read_csv(r'static/logon_rhythm.csv', header=1, encoding='utf-8')
         self.df = pd.DataFrame(raw_data, columns=ESSENCE)
         self.df = self.df.replace(['오전', '오후'], ['AM', 'PM'], regex=True)
         self.df['TimeWritten'] = pd.to_datetime(self.df['TimeWritten'], format='%Y-%m-%d %p %I:%M:%S')
